@@ -6,7 +6,7 @@ const router = Router()
 
 
 router.get('/:bookid',  async(req, res, next) =>{
-    let id = req.params.blogid;
+    let id = req.params.bookid;
     try{
         let [tagNames] = await DB.BookTags.getBookTags(id);
         res.send(tagNames);

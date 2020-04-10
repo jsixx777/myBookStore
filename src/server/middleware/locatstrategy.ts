@@ -1,5 +1,5 @@
 import * as passport from 'passport';
-import * as LocalStategy from 'passport-local';
+import * as LocalStrategy from 'passport-local';
 
 import { ComparePassword } from '../utils/security/passwords';
 import DB from '../db';
@@ -7,7 +7,7 @@ import DB from '../db';
 passport.serializeUser((user,done) => done(null,user));
 passport.deserializeUser((user,done) => done(null,user));
 
-passport.use(new LocalStategy.Strategy({
+passport.use(new LocalStrategy.Strategy({
     usernameField: 'email',
     session: false
 }, async (email,password,done) =>{
