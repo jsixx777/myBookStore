@@ -1,35 +1,39 @@
-import * as React from 'react';
+import * as React from "react";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import './scss/app';
+import {StripeProvider, Elements} from "react-stripe-elements";
+
+
+
+import "./scss/app";
+//import "bootstrap/dist/css/bootstrap.min.css";
+
+import Navbar from "./components/shared/Navbar";
+import AllBooks from "./components/public/AllBooks";
+import SingleBook from "./components/public/SingleBook";
+import Home from "./components/public/Home";
+
 
 export default class App extends React.Component<IAppProps, IAppState> {
-
-    constructor(props: IAppProps) {
-        super(props);
-
-        this.state = { name: null };
-    }
-
-    async componentWillMount() {
-        let r = await fetch('/api/hello');
-        let name = await r.json();
-        this.setState({ name })
-    }
-
-    render () {
+    render() {
         return (
-            <main className="container">
-                <h1 className="covalence-blue">Hello {this.state.name}!</h1>
-                <h2></h2>
-            </main>
-        )
+                <BrowserRouter>
+                    <>
+                        <Navbar/>
+                    </>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route exact path="/books" component={AllBooks}/>
+                        <Route exact path="/single/:id" component={SingleBook}/>
+                        
+                    </Switch>
+                </BrowserRouter>
+        );
     }
 }
 
 interface IAppProps {
-
 }
 
 interface IAppState {
-    name: string;
 }

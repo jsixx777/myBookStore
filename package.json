@@ -41,6 +41,7 @@
     "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-stripe-elements": "^6.1.1",
