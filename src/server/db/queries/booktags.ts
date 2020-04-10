@@ -1,6 +1,6 @@
 import { Query } from '../index';
 
-const getBookTags = (pizza:number)=> Query (`CALL spGetBookTags(${pizza})`);
+const getBookTags = (id:number)=> Query (`CALL spGetBookTags(${id})`);
 
 
 
