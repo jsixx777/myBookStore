@@ -1,14 +1,20 @@
 import * as React from "react";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+import Login from "./components/admin/Login";
+import Admin from "./components/admin/Admin";
+import Register from "./components/admin/Register"
 import {StripeProvider, Elements} from "react-stripe-elements";
+
+import Form from "./components/public/Form";
+
+
 import "./scss/app";
+//import "bootstrap/dist/css/bootstrap.min.css";
+
 import Navbar from "./components/shared/Navbar";
 import AllBooks from "./components/public/AllBooks";
 import SingleBook from "./components/public/SingleBook";
 import Home from "./components/public/Home";
-import Register from "./components/admin/Register";
-import Login from "./components/admin/Login";
-import Admin from "./components/admin/Admin";
 
 
 export default class App extends React.Component<IAppProps, IAppState> {
@@ -22,10 +28,15 @@ export default class App extends React.Component<IAppProps, IAppState> {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/books" component={AllBooks}/>
                         <Route exact path="/single/:id" component={SingleBook}/>
-                        <Route exact path="/register" component={Register}/>
-                        <Route exact path="/login" component={Login}/>
                         <Route exact path="/admin" component={Admin}/>
+                        <Route exact path="/login" component={Login}/>
+                        <Route exact path="/register" component={Register}/>
                         
+                        <StripeProvider apiKey='pk_test_sZJArQKC6BzrWbs8aS0DJ2bM001L4wO9nG'>
+                            <Elements>
+                        <Form/>
+                        </Elements>
+                        </StripeProvider>
                     </Switch>
                 </BrowserRouter>
         );

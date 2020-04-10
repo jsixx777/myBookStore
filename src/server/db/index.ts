@@ -5,11 +5,6 @@ import Users from './queries/users';
 import AccessTokens from './queries/accesstokens';
 import BookTags from './queries/booktags';
 
-//export const Connection = mysql.createConnection(config.mysql);
-
-//Connection.connect(err => {
-//    if(err) console.log(err);
-//});
 
 
 export const pool = mysql.createPool(config.mysql);

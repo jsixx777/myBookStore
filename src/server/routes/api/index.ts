@@ -3,6 +3,7 @@ import booksRouter from './books';
 import * as passport from 'passport';
 import bookTagsRouter from './booktags';
 import usersRouter from './users';
+
 import { tokenCheckpoint } from '../../middleware/auth-checkpoints';
 
 
